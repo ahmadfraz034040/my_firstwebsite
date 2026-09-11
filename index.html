@@ -117,9 +117,22 @@
     .hero {
       min-height: 700px;
       display: grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns: 1fr;
+      justify-items: center;
       align-items: center;
-      gap: 65px;
+      gap: 35px;
+      text-align: center;
+    }
+
+    .hero > div:first-child {
+      order: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero .profile-photo {
+      order: 1;
     }
 
     .badge {
@@ -631,7 +644,7 @@
 
       .hero {
         grid-template-columns: 1fr;
-        padding: 75px 0;
+        padding: 55px 0 75px;
       }
 
       .hero h1 {
@@ -788,7 +801,7 @@
     <div class="profile-photo">
       <div class="profile-wrap">
         <div class="profile-frame">
-          <img src="fraz.jpg" alt="Ahmad Fraz - DevOps & Cloud Engineering">
+          <img src="afraz.jpg" alt="Ahmad Fraz - DevOps & Cloud Engineering">
         </div>
         <div class="profile-caption">
           <strong>Ahmad Fraz</strong>
