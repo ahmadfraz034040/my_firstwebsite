@@ -1,339 +1,1626 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DevOps Learning Hub</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Ahmad Fraz - DevOps & Cloud Engineering Portfolio. Linux, AWS, Docker, Git, CI/CD, Bash, Networking and Cloud Infrastructure."
+  >
+
+  <title>Ahmad Fraz | DevOps & Cloud Engineer</title>
+
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:Arial,Helvetica,sans-serif;
-      background:#0b1220;
-      color:#e5e7eb;
-      line-height:1.6;
-    }
-    a{text-decoration:none;color:inherit}
-    .container{width:min(1100px,92%);margin:auto}
 
-    header{
-      position:sticky;top:0;z-index:10;
-      background:rgba(11,18,32,.94);
-      border-bottom:1px solid #243047;
-      backdrop-filter:blur(8px);
-    }
-    nav{
-      min-height:70px;
-      display:flex;align-items:center;justify-content:space-between;gap:20px;
-    }
-    .brand{font-size:1.4rem;font-weight:700;color:#38bdf8}
-    .nav-links{display:flex;gap:18px;flex-wrap:wrap}
-    .nav-links a:hover{color:#38bdf8}
+    /* =====================================================
+       GLOBAL
+    ===================================================== */
 
-    .hero{
-      min-height:560px;
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      align-items:center;
-      gap:40px;
-      padding:70px 0;
-    }
-    .badge{
-      display:inline-block;
-      background:#10233a;
-      color:#7dd3fc;
-      padding:7px 12px;
-      border:1px solid #1d4e68;
-      border-radius:999px;
-      margin-bottom:18px;
-      font-size:.9rem;
-    }
-    h1{font-size:3rem;line-height:1.15;margin-bottom:18px}
-    .hero p{color:#b6c2d1;margin-bottom:24px;max-width:700px}
-    .btn{
-      display:inline-block;
-      padding:12px 20px;
-      border-radius:10px;
-      background:#0284c7;
-      color:white;
-      font-weight:700;
-      border:none;
-      cursor:pointer;
-    }
-    .btn:hover{background:#0369a1}
-    .btn.secondary{background:transparent;border:1px solid #475569;margin-left:10px}
-
-    .login-card{
-      background:#111b2e;
-      border:1px solid #26354f;
-      padding:28px;
-      border-radius:18px;
-      box-shadow:0 20px 60px rgba(0,0,0,.25);
-    }
-    .login-card h2{margin-bottom:8px}
-    .login-card p{font-size:.92rem;margin-bottom:18px}
-    label{display:block;margin:12px 0 6px}
-    input{
-      width:100%;
-      padding:12px;
-      border-radius:9px;
-      border:1px solid #334155;
-      background:#0b1220;
-      color:white;
-      outline:none;
-    }
-    input:focus{border-color:#38bdf8}
-    .login-card .btn{width:100%;margin-top:16px}
-    #loginMessage{margin-top:12px;font-size:.9rem;color:#7dd3fc}
-
-    section{padding:70px 0}
-    .section-title{text-align:center;margin-bottom:35px}
-    .section-title h2{font-size:2rem;margin-bottom:8px}
-    .section-title p{color:#94a3b8}
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-    .card{
-      background:#111b2e;
-      border:1px solid #26354f;
-      padding:24px;
-      border-radius:16px;
-    }
-    .card h3{margin:12px 0 8px;color:#f8fafc}
-    .card p{color:#9fb0c3}
-    .icon{font-size:2rem}
-
-    .roadmap{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
-    }
-    .step{
-      background:#0f1a2d;
-      border-left:4px solid #0ea5e9;
-      padding:18px;
-      border-radius:10px;
-    }
-    .step strong{display:block;margin-bottom:6px}
-
-    .tools{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      justify-content:center;
-    }
-    .tool{
-      background:#111b2e;
-      border:1px solid #334155;
-      padding:10px 16px;
-      border-radius:999px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .cta{
-      background:linear-gradient(135deg,#0c4a6e,#1e3a8a);
-      border-radius:20px;
-      padding:38px;
-      text-align:center;
-    }
-    .cta p{color:#dbeafe;margin:10px 0 20px}
-
-    footer{
-      border-top:1px solid #243047;
-      padding:28px 0;
-      text-align:center;
-      color:#94a3b8;
+    html {
+      scroll-behavior: smooth;
     }
 
-    @media(max-width:850px){
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr 1fr}
-      .roadmap{grid-template-columns:1fr 1fr}
-      h1{font-size:2.3rem}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #07111f;
+      color: #e5edf7;
+      line-height: 1.6;
     }
-    @media(max-width:560px){
-      nav{flex-direction:column;padding:14px 0}
-      .nav-links{justify-content:center}
-      .grid,.roadmap{grid-template-columns:1fr}
-      h1{font-size:2rem}
-      .btn.secondary{margin:10px 0 0 0}
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    section {
+      padding: 95px 0;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 17, 31, 0.96);
+      border-bottom: 1px solid #1d3048;
+      backdrop-filter: blur(12px);
+    }
+
+    nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #38bdf8;
+      letter-spacing: .3px;
+    }
+
+    .brand span {
+      color: #e5edf7;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #b8c5d5;
+      font-size: .95rem;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    .nav-contact {
+      border: 1px solid #38bdf8;
+      padding: 8px 15px;
+      border-radius: 8px;
+      color: #38bdf8 !important;
+    }
+
+    .nav-contact:hover {
+      background: #38bdf8;
+      color: #06111f !important;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+      min-height: 700px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 15px;
+      background: #0b2439;
+      border: 1px solid #164e6d;
+      border-radius: 30px;
+      color: #7dd3fc;
+      font-size: .85rem;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: 4.2rem;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: #38bdf8;
+    }
+
+    .hero h2 {
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: #b9c7d8;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      color: #94a6bb;
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 9px;
+      background: #0284c7;
+      color: white;
+      border: 1px solid #0284c7;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      background: #0369a1;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: #3b5068;
+    }
+
+    .btn-outline:hover {
+      background: transparent;
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+
+
+    /* =====================================================
+       TERMINAL
+    ===================================================== */
+
+    .terminal {
+      background: #0b1728;
+      border: 1px solid #253b56;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,.35);
+    }
+
+    .terminal-top {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 13px 16px;
+      background: #0e1c30;
+      border-bottom: 1px solid #243a55;
+    }
+
+    .terminal-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #475569;
+    }
+
+    .terminal-title {
+      margin-left: 10px;
+      color: #64748b;
+      font-size: .8rem;
+    }
+
+    .terminal-body {
+      padding: 28px;
+      font-family: Consolas, monospace;
+      font-size: .9rem;
+    }
+
+    .terminal-line {
+      margin-bottom: 14px;
+      color: #94a3b8;
+    }
+
+    .cmd {
+      color: #38bdf8;
+    }
+
+    .green {
+      color: #4ade80;
+    }
+
+    .terminal-name {
+      color: #f8fafc;
+    }
+
+
+
+    /* =====================================================
+       PROFESSIONAL PROFILE PHOTO
+    ===================================================== */
+
+    .profile-photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-wrap {
+      text-align: center;
+    }
+
+    .profile-frame {
+      width: 350px;
+      height: 400px;
+      padding: 7px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #38bdf8, #1e3a8a);
+      box-shadow: 0 25px 70px rgba(0,0,0,.45);
+    }
+
+    .profile-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      border-radius: 18px;
+      background: #0c1829;
+    }
+
+    .profile-caption {
+      margin-top: 15px;
+    }
+
+    .profile-caption strong {
+      display: block;
+      font-size: 1.15rem;
+      color: #f8fafc;
+    }
+
+    .profile-caption span {
+      color: #38bdf8;
+      font-size: .9rem;
+    }
+
+    /* =====================================================
+       SECTION TITLES
+    ===================================================== */
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #8495aa;
+      max-width: 700px;
+      margin: auto;
+    }
+
+
+    /* =====================================================
+       ABOUT
+    ===================================================== */
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-content h2 {
+      font-size: 2.3rem;
+      margin-bottom: 18px;
+    }
+
+    .about-content h2 span {
+      color: #38bdf8;
+    }
+
+    .about-content p {
+      color: #94a6bb;
+      margin-bottom: 15px;
+    }
+
+    .about-points {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .about-point {
+      padding: 16px;
+      background: #0c1829;
+      border: 1px solid #20344d;
+      border-radius: 10px;
+    }
+
+    .about-point strong {
+      color: #38bdf8;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .about-point span {
+      color: #91a1b4;
+      font-size: .9rem;
+    }
+
+
+    /* =====================================================
+       SERVICES
+    ===================================================== */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: #0c1829;
+      border: 1px solid #20344d;
+      border-radius: 15px;
+      padding: 28px;
+      transition: .3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: #287aa5;
+      box-shadow: 0 18px 45px rgba(0,0,0,.25);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: #102a40;
+      color: #38bdf8;
+      margin-bottom: 20px;
+    }
+
+    .service-icon svg {
+      width: 27px;
+      height: 27px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: #91a2b5;
+      font-size: .93rem;
+    }
+
+
+    /* =====================================================
+       TECH STACK
+    ===================================================== */
+
+    .stack {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .stack-item {
+      padding: 20px;
+      background: #0c1829;
+      border: 1px solid #20344d;
+      border-radius: 12px;
+      text-align: center;
+      transition: .3s;
+    }
+
+    .stack-item:hover {
+      border-color: #38bdf8;
+      transform: translateY(-3px);
+    }
+
+    .stack-item strong {
+      display: block;
+      color: #e8f1fa;
+      margin-bottom: 5px;
+    }
+
+    .stack-item span {
+      color: #7f91a6;
+      font-size: .85rem;
+    }
+
+
+    /* =====================================================
+       PROJECTS
+    ===================================================== */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project {
+      background: #0c1829;
+      border: 1px solid #20344d;
+      border-radius: 15px;
+      padding: 28px;
+    }
+
+    .project-tag {
+      color: #38bdf8;
+      text-transform: uppercase;
+      font-size: .75rem;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    .project h3 {
+      font-size: 1.3rem;
+      margin: 12px 0;
+    }
+
+    .project p {
+      color: #91a2b5;
+      margin-bottom: 18px;
+      font-size: .93rem;
+    }
+
+    .project ul {
+      padding-left: 18px;
+      color: #b5c2d1;
+    }
+
+    .project li {
+      margin-bottom: 7px;
+    }
+
+
+    /* =====================================================
+       PIPELINE
+    ===================================================== */
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .pipeline-step {
+      background: #0c1829;
+      border: 1px solid #20344d;
+      padding: 25px 15px;
+      text-align: center;
+      border-radius: 12px;
+    }
+
+    .pipeline-number {
+      color: #38bdf8;
+      font-weight: bold;
+      font-size: .8rem;
+    }
+
+    .pipeline-step h3 {
+      margin-top: 7px;
+      font-size: 1rem;
+    }
+
+    .pipeline-step p {
+      color: #788a9f;
+      font-size: .8rem;
+      margin-top: 5px;
+    }
+
+
+    /* =====================================================
+       SKILLS
+    ===================================================== */
+
+    .skills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .skill {
+      margin-bottom: 22px;
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 7px;
+    }
+
+    .skill-header span {
+      color: #cbd5e1;
+      font-size: .9rem;
+    }
+
+    .skill-bar {
+      height: 7px;
+      background: #18273a;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: #0ea5e9;
+      border-radius: 20px;
+    }
+
+
+    /* =====================================================
+       CONTACT
+    ===================================================== */
+
+    .contact-box {
+      background: linear-gradient(135deg, #0b3552, #102c58);
+      border: 1px solid #285a7c;
+      border-radius: 20px;
+      padding: 60px 30px;
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      color: #c7d9ec;
+      max-width: 700px;
+      margin: 0 auto 28px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+      border-top: 1px solid #1d3048;
+      padding: 32px 0;
+      text-align: center;
+      color: #718197;
+    }
+
+    footer strong {
+      color: #38bdf8;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media(max-width: 950px) {
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 75px 0;
+      }
+
+      .hero h1 {
+        font-size: 3.2rem;
+      }
+
+      .profile-frame {
+        width: 300px;
+        height: 350px;
+      }
+
+      .services-grid,
+      .projects {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stack {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pipeline {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .skills,
+      .about {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    @media(max-width: 600px) {
+
+      nav {
+        flex-direction: column;
+        padding: 15px 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 13px;
+      }
+
+      .hero h1 {
+        font-size: 2.35rem;
+      }
+
+      .services-grid,
+      .projects,
+      .stack,
+      .about-points,
+      .pipeline {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+
   </style>
 </head>
+
+
 <body>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
+
   <div class="container">
+
     <nav>
-      <div class="brand">DevOps Learning Hub</div>
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#courses">Courses</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#tools">Tools</a>
-        <a href="#contact">Contact</a>
+
+      <div class="brand">
+        Ahmad <span>Fraz</span>
       </div>
+
+      <div class="nav-links">
+
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#stack">Tech Stack</a>
+        <a href="#contact" class="nav-contact">Contact</a>
+
+      </div>
+
     </nav>
+
   </div>
+
 </header>
 
+
+
 <main>
-  <section id="home">
-    <div class="container hero">
-      <div>
-        <span class="badge">Learn • Practice • Deploy</span>
-        <h1>Start Your DevOps Journey With Practical Skills</h1>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section id="home">
+
+  <div class="container hero">
+
+    <div>
+
+      <div class="badge">
+        ⚡ DevOps • Cloud • Automation
+      </div>
+
+      <h1>
+        Ahmad <span>Fraz</span>
+      </h1>
+
+      <h2>
+        DevOps & Cloud Engineering
+      </h2>
+
+      <p>
+        Building reliable infrastructure, automated deployment workflows,
+        cloud environments and scalable systems using modern DevOps
+        technologies and engineering practices.
+      </p>
+
+      <div class="buttons">
+
+        <a href="#projects" class="btn">
+          View Projects
+        </a>
+
+        <a href="#services" class="btn btn-outline">
+          Explore Expertise
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- PROFESSIONAL PROFILE PHOTO -->
+
+    <div class="profile-photo">
+      <div class="profile-wrap">
+        <div class="profile-frame">
+          <img src="fraz.jpg" alt="Ahmad Fraz - DevOps & Cloud Engineering">
+        </div>
+        <div class="profile-caption">
+          <strong>Ahmad Fraz</strong>
+          <span>DevOps & Cloud Engineering</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about">
+
+  <div class="container about">
+
+    <div class="about-content">
+
+      <h2>
+        Engineering With
+        <span>Automation & Reliability</span>
+      </h2>
+
+      <p>
+        I focus on developing practical skills in DevOps, cloud
+        infrastructure, Linux administration, automation and modern
+        deployment workflows.
+      </p>
+
+      <p>
+        My approach is centered around automation, repeatable
+        infrastructure, secure configurations and reliable software
+        delivery.
+      </p>
+
+      <div class="about-points">
+
+        <div class="about-point">
+          <strong>Cloud</strong>
+          <span>AWS infrastructure & deployment</span>
+        </div>
+
+        <div class="about-point">
+          <strong>Automation</strong>
+          <span>Bash & CI/CD workflows</span>
+        </div>
+
+        <div class="about-point">
+          <strong>Infrastructure</strong>
+          <span>Linux & server administration</span>
+        </div>
+
+        <div class="about-point">
+          <strong>Deployment</strong>
+          <span>Containers & web services</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="terminal">
+
+      <div class="terminal-top">
+
+        <span class="terminal-dot"></span>
+        <span class="terminal-dot"></span>
+        <span class="terminal-dot"></span>
+
+        <span class="terminal-title">
+          infrastructure.sh
+        </span>
+
+      </div>
+
+      <div class="terminal-body">
+
+        <div class="terminal-line">
+          <span class="cmd">$</span> ./deploy.sh
+        </div>
+
+        <div class="terminal-line">
+          Initializing infrastructure...
+        </div>
+
+        <div class="terminal-line green">
+          ✓ Linux server configured
+        </div>
+
+        <div class="terminal-line green">
+          ✓ Security configuration applied
+        </div>
+
+        <div class="terminal-line green">
+          ✓ Application deployed
+        </div>
+
+        <div class="terminal-line green">
+          ✓ Monitoring enabled
+        </div>
+
+        <div class="terminal-line">
+          Deployment completed.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section id="services">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>DevOps Expertise</h2>
+
+      <p>
+        Core technologies and engineering areas used to build,
+        deploy and maintain modern infrastructure.
+      </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+
+      <!-- LINUX -->
+
+      <div class="service-card">
+
+        <div class="service-icon">
+
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3c-2.5 0-4 2-4 4.5S6 12 6 15c0 2 1.5 3 3 3h6c1.5 0 3-1 3-3 0-3-2-5-2-7.5S14.5 3 12 3z"/>
+            <path d="M9 20h6"/>
+            <path d="M10 15h.01M14 15h.01"/>
+          </svg>
+
+        </div>
+
+        <h3>Linux Administration</h3>
+
         <p>
-          Learn Linux, Git, GitHub, Bash, AWS, Docker, CI/CD, Networking and Cloud basics
-          through a simple beginner-friendly DevOps learning platform.
+          Server administration, file systems, users and groups,
+          permissions, processes, services, logs, system monitoring
+          and troubleshooting.
         </p>
-        <a class="btn" href="#courses">Explore Courses</a>
-        <a class="btn secondary" href="#roadmap">View Roadmap</a>
+
       </div>
 
-      <div class="login-card">
-        <h2>Student Login</h2>
-        <p>Demo frontend login for this static website.</p>
 
-        <form id="loginForm">
-          <label for="username">Username</label>
-          <input type="text" id="username" placeholder="Enter username" required />
+      <!-- AWS -->
 
-          <label for="password">Account Password</label>
-          <input type="password" id="password" placeholder="Enter password" required />
+      <div class="service-card">
 
-          <button class="btn" type="submit">Login</button>
-          <div id="loginMessage"></div>
-        </form>
+        <div class="service-icon">
+
+          <svg viewBox="0 0 24 24">
+            <path d="M5 17h14"/>
+            <path d="M7 14h10"/>
+            <path d="M9 11h6"/>
+            <path d="M12 3v8"/>
+            <path d="M8 7l4-4 4 4"/>
+          </svg>
+
+        </div>
+
+        <h3>AWS Cloud</h3>
+
+        <p>
+          Cloud infrastructure using AWS services such as EC2,
+          security groups, networking, storage and Linux-based
+          application deployment.
+        </p>
+
       </div>
+
+
+      <!-- GIT -->
+
+      <div class="service-card">
+
+        <div class="service-icon">
+
+          <svg viewBox="0 0 24 24">
+            <circle cx="7" cy="7" r="2"/>
+            <circle cx="17" cy="7" r="2"/>
+            <circle cx="12" cy="17" r="2"/>
+            <path d="M9 7h6"/>
+            <path d="M8 8.5l3 6"/>
+            <path d="M16 8.5l-3 6"/>
+          </svg>
+
+        </div>
+
+        <h3>Git & GitHub</h3>
+
+        <p>
+          Version control, repositories, commits, branches,
+          pull requests and structured collaboration using Git
+          and GitHub workflows.
+        </p>
+
+      </div>
+
+
+      <!-- BASH -->
+
+      <div class="service-card">
+
+        <div class="service-icon">
+
+          <svg viewBox="0 0 24 24">
+            <path d="M4 5h16v14H4z"/>
+            <path d="M7 9l3 3-3 3"/>
+            <path d="M12 15h4"/>
+          </svg>
+
+        </div>
+
+        <h3>Bash Automation</h3>
+
+        <p>
+          Shell scripting for Linux administration, automated
+          backups, user management, conditional logic, loops
+          and operational tasks.
+        </p>
+
+      </div>
+
+
+      <!-- DOCKER -->
+
+      <div class="service-card">
+
+        <div class="service-icon">
+
+          <svg viewBox="0 0 24 24">
+            <path d="M4 10h3v3H4z"/>
+            <path d="M8 10h3v3H8z"/>
+            <path d="M12 10h3v3h-3z"/>
+            <path d="M8 6h3v3H8z"/>
+            <path d="M12 6h3v3h-3z"/>
+            <path d="M3 16c2 3 6 4 10 3 4-1 6-3 7-6"/>
+          </svg>
+
+        </div>
+
+        <h3>Docker & Containers</h3>
+
+        <p>
+          Container-based application packaging, Docker images,
+          Dockerfiles and reproducible application environments.
+        </p>
+
+      </div>
+
+
+      <!-- CI CD -->
+
+      <div class="service-card">
+
+        <div class="service-icon">
+
+          <svg viewBox="0 0 24 24">
+            <circle cx="5" cy="12" r="2"/>
+            <circle cx="12" cy="6" r="2"/>
+            <circle cx="19" cy="12" r="2"/>
+            <circle cx="12" cy="18" r="2"/>
+            <path d="M7 11l3-4"/>
+            <path d="M14 7l3 4"/>
+            <path d="M17 13l-3 4"/>
+            <path d="M10 17l-3-4"/>
+          </svg>
+
+        </div>
+
+        <h3>CI/CD Automation</h3>
+
+        <p>
+          Automated software delivery pipelines covering source
+          control, build, testing, deployment and continuous
+          delivery workflows.
+        </p>
+
+      </div>
+
+
+      <!-- NETWORKING -->
+
+      <div class="service-card">
+
+        <div class="service-icon">
+
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="5" r="2"/>
+            <circle cx="6" cy="18" r="2"/>
+            <circle cx="18" cy="18" r="2"/>
+            <path d="M12 7v4"/>
+            <path d="M12 11L6 16"/>
+            <path d="M12 11l6 5"/>
+          </svg>
+
+        </div>
+
+        <h3>Networking</h3>
+
+        <p>
+          Core networking concepts including IP addressing,
+          DNS, HTTP/HTTPS, SSH, ports, routing and secure
+          server connectivity.
+        </p>
+
+      </div>
+
+
+      <!-- SECURITY -->
+
+      <div class="service-card">
+
+        <div class="service-icon">
+
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+
+        </div>
+
+        <h3>Cloud Security</h3>
+
+        <p>
+          Secure access control, IAM concepts, SSH security,
+          firewall configuration, permissions and basic
+          infrastructure security practices.
+        </p>
+
+      </div>
+
+
+      <!-- TERRAFORM -->
+
+      <div class="service-card">
+
+        <div class="service-icon">
+
+          <svg viewBox="0 0 24 24">
+            <path d="M5 5l5 3v6l-5-3z"/>
+            <path d="M10 8l5-3v6l-5 3z"/>
+            <path d="M10 14l5 3v-6l-5-3z"/>
+          </svg>
+
+        </div>
+
+        <h3>Infrastructure as Code</h3>
+
+        <p>
+          Infrastructure automation concepts using Infrastructure
+          as Code practices for repeatable and manageable cloud
+          environments.
+        </p>
+
+      </div>
+
+
     </div>
-  </section>
 
-  <section id="courses">
-    <div class="container">
-      <div class="section-title">
-        <h2>DevOps Courses</h2>
-        <p>Core technologies every beginner DevOps learner should understand.</p>
-      </div>
+  </div>
 
-      <div class="grid">
-        <div class="card">
-          <div class="icon">🐧</div>
-          <h3>Linux Fundamentals</h3>
-          <p>Commands, users, permissions, files, processes, services and system monitoring.</p>
-        </div>
+</section>
 
-        <div class="card">
-          <div class="icon">🌿</div>
-          <h3>Git & GitHub</h3>
-          <p>Version control, repositories, branches, commits, pull requests and collaboration.</p>
-        </div>
 
-        <div class="card">
-          <div class="icon">☁️</div>
-          <h3>AWS Cloud Basics</h3>
-          <p>EC2, regions, availability zones, security groups and basic cloud deployment.</p>
-        </div>
 
-        <div class="card">
-          <div class="icon">📜</div>
-          <h3>Bash Scripting</h3>
-          <p>Variables, loops, conditions, functions and automation for Linux administrators.</p>
-        </div>
+<!-- =====================================================
+     TECH STACK
+===================================================== -->
 
-        <div class="card">
-          <div class="icon">🐳</div>
-          <h3>Docker Basics</h3>
-          <p>Containers, images, Dockerfile concepts and application packaging.</p>
-        </div>
+<section id="stack">
 
-        <div class="card">
-          <div class="icon">⚙️</div>
-          <h3>CI/CD Fundamentals</h3>
-          <p>Understand build, test and deployment pipelines used in modern DevOps workflows.</p>
-        </div>
-      </div>
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>Technology Stack</h2>
+
+      <p>
+        Technologies currently used across DevOps, cloud and
+        infrastructure workflows.
+      </p>
+
     </div>
-  </section>
 
-  <section id="roadmap">
-    <div class="container">
-      <div class="section-title">
-        <h2>Beginner DevOps Roadmap</h2>
-        <p>Follow this order to build your skills step by step.</p>
+
+    <div class="stack">
+
+      <div class="stack-item">
+        <strong>Linux</strong>
+        <span>System Administration</span>
       </div>
 
-      <div class="roadmap">
-        <div class="step"><strong>Step 1</strong>IT & Networking Basics</div>
-        <div class="step"><strong>Step 2</strong>Linux Administration</div>
-        <div class="step"><strong>Step 3</strong>Git & GitHub</div>
-        <div class="step"><strong>Step 4</strong>Bash Scripting</div>
-        <div class="step"><strong>Step 5</strong>AWS Cloud</div>
-        <div class="step"><strong>Step 6</strong>Docker</div>
-        <div class="step"><strong>Step 7</strong>CI/CD</div>
-        <div class="step"><strong>Step 8</strong>Monitoring & Projects</div>
+      <div class="stack-item">
+        <strong>AWS</strong>
+        <span>Cloud Infrastructure</span>
       </div>
+
+      <div class="stack-item">
+        <strong>Git</strong>
+        <span>Version Control</span>
+      </div>
+
+      <div class="stack-item">
+        <strong>GitHub</strong>
+        <span>Code Collaboration</span>
+      </div>
+
+      <div class="stack-item">
+        <strong>Bash</strong>
+        <span>Automation</span>
+      </div>
+
+      <div class="stack-item">
+        <strong>Docker</strong>
+        <span>Containers</span>
+      </div>
+
+      <div class="stack-item">
+        <strong>Nginx</strong>
+        <span>Web Server</span>
+      </div>
+
+      <div class="stack-item">
+        <strong>CI/CD</strong>
+        <span>Deployment Automation</span>
+      </div>
+
+      <div class="stack-item">
+        <strong>Jenkins</strong>
+        <span>Automation Server</span>
+      </div>
+
+      <div class="stack-item">
+        <strong>Terraform</strong>
+        <span>Infrastructure as Code</span>
+      </div>
+
+      <div class="stack-item">
+        <strong>Kubernetes</strong>
+        <span>Container Orchestration</span>
+      </div>
+
+      <div class="stack-item">
+        <strong>Networking</strong>
+        <span>Infrastructure Connectivity</span>
+      </div>
+
     </div>
-  </section>
 
-  <section id="tools">
-    <div class="container">
-      <div class="section-title">
-        <h2>Popular DevOps Tools</h2>
-        <p>Tools commonly used in learning and real DevOps environments.</p>
-      </div>
+  </div>
 
-      <div class="tools">
-        <span class="tool">Linux</span>
-        <span class="tool">Git</span>
-        <span class="tool">GitHub</span>
-        <span class="tool">Bash</span>
-        <span class="tool">AWS</span>
-        <span class="tool">Docker</span>
-        <span class="tool">Jenkins</span>
-        <span class="tool">GitHub Actions</span>
-        <span class="tool">Nginx</span>
-        <span class="tool">Terraform</span>
-        <span class="tool">Kubernetes</span>
-      </div>
+</section>
+
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section id="projects">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>Featured Projects</h2>
+
+      <p>
+        Practical projects demonstrating cloud deployment,
+        automation and DevOps workflows.
+      </p>
+
     </div>
-  </section>
 
-  <section id="contact">
-    <div class="container">
-      <div class="cta">
-        <h2>Build Skills Through Practice</h2>
-        <p>Create Linux servers, deploy simple web apps, write Bash scripts and push your projects to GitHub.</p>
-        <a class="btn" href="#home">Start Learning</a>
+
+    <div class="projects">
+
+
+      <div class="project">
+
+        <div class="project-tag">
+          AWS • Deployment
+        </div>
+
+        <h3>Cloud Web Deployment</h3>
+
+        <p>
+          Deployed a static web application on AWS infrastructure
+          using a Linux server and Nginx.
+        </p>
+
+        <ul>
+          <li>AWS EC2</li>
+          <li>Ubuntu Linux</li>
+          <li>Security Groups</li>
+          <li>Nginx</li>
+          <li>GitHub</li>
+        </ul>
+
       </div>
+
+
+      <div class="project">
+
+        <div class="project-tag">
+          Bash • Automation
+        </div>
+
+        <h3>Linux Automation Scripts</h3>
+
+        <p>
+          Developed Bash scripts for automating repetitive Linux
+          administration tasks.
+        </p>
+
+        <ul>
+          <li>User Management</li>
+          <li>Backup Automation</li>
+          <li>Loops</li>
+          <li>Conditions</li>
+          <li>Functions</li>
+        </ul>
+
+      </div>
+
+
+      <div class="project">
+
+        <div class="project-tag">
+          Git • GitHub
+        </div>
+
+        <h3>Version Control Workflow</h3>
+
+        <p>
+          Managed source code through Git and GitHub using
+          repositories, commits, branches and deployment workflows.
+        </p>
+
+        <ul>
+          <li>Git Repository</li>
+          <li>Branch Management</li>
+          <li>Commits</li>
+          <li>GitHub</li>
+          <li>Deployment</li>
+        </ul>
+
+      </div>
+
     </div>
-  </section>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DEVOPS PIPELINE
+===================================================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>DevOps Delivery Workflow</h2>
+
+      <p>
+        From source code to production monitoring through an
+        automated engineering workflow.
+      </p>
+
+    </div>
+
+
+    <div class="pipeline">
+
+      <div class="pipeline-step">
+        <div class="pipeline-number">01</div>
+        <h3>Plan & Code</h3>
+        <p>Develop and manage source code.</p>
+      </div>
+
+      <div class="pipeline-step">
+        <div class="pipeline-number">02</div>
+        <h3>Build</h3>
+        <p>Build application artifacts.</p>
+      </div>
+
+      <div class="pipeline-step">
+        <div class="pipeline-number">03</div>
+        <h3>Test</h3>
+        <p>Validate application quality.</p>
+      </div>
+
+      <div class="pipeline-step">
+        <div class="pipeline-number">04</div>
+        <h3>Deploy</h3>
+        <p>Release to infrastructure.</p>
+      </div>
+
+      <div class="pipeline-step">
+        <div class="pipeline-number">05</div>
+        <h3>Monitor</h3>
+        <p>Observe system performance.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>Core Skills</h2>
+
+      <p>
+        Areas of practical learning and hands-on development.
+      </p>
+
+    </div>
+
+
+    <div class="skills">
+
+      <div>
+
+        <div class="skill">
+
+          <div class="skill-header">
+            <span>Linux Administration</span>
+            <span>85%</span>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:85%"></div>
+          </div>
+
+        </div>
+
+
+        <div class="skill">
+
+          <div class="skill-header">
+            <span>AWS Cloud</span>
+            <span>80%</span>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:80%"></div>
+          </div>
+
+        </div>
+
+
+        <div class="skill">
+
+          <div class="skill-header">
+            <span>Git & GitHub</span>
+            <span>85%</span>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:85%"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <div class="skill">
+
+          <div class="skill-header">
+            <span>Bash Scripting</span>
+            <span>80%</span>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:80%"></div>
+          </div>
+
+        </div>
+
+
+        <div class="skill">
+
+          <div class="skill-header">
+            <span>Docker</span>
+            <span>70%</span>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:70%"></div>
+          </div>
+
+        </div>
+
+
+        <div class="skill">
+
+          <div class="skill-header">
+            <span>CI/CD</span>
+            <span>70%</span>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:70%"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact">
+
+  <div class="container">
+
+    <div class="contact-box">
+
+      <h2>
+        Let's Build With DevOps
+      </h2>
+
+      <p>
+        Exploring cloud infrastructure, automation, Linux,
+        containers and continuous delivery through practical
+        DevOps projects.
+      </p>
+
+      <div class="buttons" style="justify-content:center;">
+
+        <a
+          href="https://github.com/ahmadfraz034040"
+          target="_blank"
+          class="btn"
+        >
+          GitHub
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/ahmad-fraz/"
+          target="_blank"
+          class="btn btn-outline"
+        >
+          LinkedIn
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
 </main>
 
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
+
   <div class="container">
-    <p>© 2026 DevOps Learning Hub | Static HTML Demo Website</p>
+
+    <p>
+      © 2026 <strong>Ahmad Fraz</strong>
+      | DevOps • Cloud • Automation • Infrastructure
+    </p>
+
   </div>
+
 </footer>
 
-<script>
-  const form = document.getElementById("loginForm");
-  const message = document.getElementById("loginMessage");
-
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
-
-    if(username && password){
-      message.textContent = "Demo login successful. Welcome, " + username + "!";
-    } else {
-      message.textContent = "Please enter username and password.";
-    }
-  });
-</script>
 
 </body>
 </html>
