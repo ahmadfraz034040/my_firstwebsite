@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevOps Learning Hub</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:#0b1220;
+      color:#e5e7eb;
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1100px,92%);margin:auto}
+
+    header{
+      position:sticky;top:0;z-index:10;
+      background:rgba(11,18,32,.94);
+      border-bottom:1px solid #243047;
+      backdrop-filter:blur(8px);
+    }
+    nav{
+      min-height:70px;
+      display:flex;align-items:center;justify-content:space-between;gap:20px;
+    }
+    .brand{font-size:1.4rem;font-weight:700;color:#38bdf8}
+    .nav-links{display:flex;gap:18px;flex-wrap:wrap}
+    .nav-links a:hover{color:#38bdf8}
+
+    .hero{
+      min-height:560px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      align-items:center;
+      gap:40px;
+      padding:70px 0;
+    }
+    .badge{
+      display:inline-block;
+      background:#10233a;
+      color:#7dd3fc;
+      padding:7px 12px;
+      border:1px solid #1d4e68;
+      border-radius:999px;
+      margin-bottom:18px;
+      font-size:.9rem;
+    }
+    h1{font-size:3rem;line-height:1.15;margin-bottom:18px}
+    .hero p{color:#b6c2d1;margin-bottom:24px;max-width:700px}
+    .btn{
+      display:inline-block;
+      padding:12px 20px;
+      border-radius:10px;
+      background:#0284c7;
+      color:white;
+      font-weight:700;
+      border:none;
+      cursor:pointer;
+    }
+    .btn:hover{background:#0369a1}
+    .btn.secondary{background:transparent;border:1px solid #475569;margin-left:10px}
+
+    .login-card{
+      background:#111b2e;
+      border:1px solid #26354f;
+      padding:28px;
+      border-radius:18px;
+      box-shadow:0 20px 60px rgba(0,0,0,.25);
+    }
+    .login-card h2{margin-bottom:8px}
+    .login-card p{font-size:.92rem;margin-bottom:18px}
+    label{display:block;margin:12px 0 6px}
+    input{
+      width:100%;
+      padding:12px;
+      border-radius:9px;
+      border:1px solid #334155;
+      background:#0b1220;
+      color:white;
+      outline:none;
+    }
+    input:focus{border-color:#38bdf8}
+    .login-card .btn{width:100%;margin-top:16px}
+    #loginMessage{margin-top:12px;font-size:.9rem;color:#7dd3fc}
+
+    section{padding:70px 0}
+    .section-title{text-align:center;margin-bottom:35px}
+    .section-title h2{font-size:2rem;margin-bottom:8px}
+    .section-title p{color:#94a3b8}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+    .card{
+      background:#111b2e;
+      border:1px solid #26354f;
+      padding:24px;
+      border-radius:16px;
+    }
+    .card h3{margin:12px 0 8px;color:#f8fafc}
+    .card p{color:#9fb0c3}
+    .icon{font-size:2rem}
+
+    .roadmap{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+    .step{
+      background:#0f1a2d;
+      border-left:4px solid #0ea5e9;
+      padding:18px;
+      border-radius:10px;
+    }
+    .step strong{display:block;margin-bottom:6px}
+
+    .tools{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:center;
+    }
+    .tool{
+      background:#111b2e;
+      border:1px solid #334155;
+      padding:10px 16px;
+      border-radius:999px;
+    }
+
+    .cta{
+      background:linear-gradient(135deg,#0c4a6e,#1e3a8a);
+      border-radius:20px;
+      padding:38px;
+      text-align:center;
+    }
+    .cta p{color:#dbeafe;margin:10px 0 20px}
+
+    footer{
+      border-top:1px solid #243047;
+      padding:28px 0;
+      text-align:center;
+      color:#94a3b8;
+    }
+
+    @media(max-width:850px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+      .roadmap{grid-template-columns:1fr 1fr}
+      h1{font-size:2.3rem}
+    }
+    @media(max-width:560px){
+      nav{flex-direction:column;padding:14px 0}
+      .nav-links{justify-content:center}
+      .grid,.roadmap{grid-template-columns:1fr}
+      h1{font-size:2rem}
+      .btn.secondary{margin:10px 0 0 0}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="brand">DevOps Learning Hub</div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#courses">Courses</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#tools">Tools</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="home">
+    <div class="container hero">
+      <div>
+        <span class="badge">Learn • Practice • Deploy</span>
+        <h1>Start Your DevOps Journey With Practical Skills</h1>
+        <p>
+          Learn Linux, Git, GitHub, Bash, AWS, Docker, CI/CD, Networking and Cloud basics
+          through a simple beginner-friendly DevOps learning platform.
+        </p>
+        <a class="btn" href="#courses">Explore Courses</a>
+        <a class="btn secondary" href="#roadmap">View Roadmap</a>
+      </div>
+
+      <div class="login-card">
+        <h2>Student Login</h2>
+        <p>Demo frontend login for this static website.</p>
+
+        <form id="loginForm">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter username" required />
+
+          <label for="password">Account Password</label>
+          <input type="password" id="password" placeholder="Enter password" required />
+
+          <button class="btn" type="submit">Login</button>
+          <div id="loginMessage"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="courses">
+    <div class="container">
+      <div class="section-title">
+        <h2>DevOps Courses</h2>
+        <p>Core technologies every beginner DevOps learner should understand.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="icon">🐧</div>
+          <h3>Linux Fundamentals</h3>
+          <p>Commands, users, permissions, files, processes, services and system monitoring.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🌿</div>
+          <h3>Git & GitHub</h3>
+          <p>Version control, repositories, branches, commits, pull requests and collaboration.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">☁️</div>
+          <h3>AWS Cloud Basics</h3>
+          <p>EC2, regions, availability zones, security groups and basic cloud deployment.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">📜</div>
+          <h3>Bash Scripting</h3>
+          <p>Variables, loops, conditions, functions and automation for Linux administrators.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🐳</div>
+          <h3>Docker Basics</h3>
+          <p>Containers, images, Dockerfile concepts and application packaging.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">⚙️</div>
+          <h3>CI/CD Fundamentals</h3>
+          <p>Understand build, test and deployment pipelines used in modern DevOps workflows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap">
+    <div class="container">
+      <div class="section-title">
+        <h2>Beginner DevOps Roadmap</h2>
+        <p>Follow this order to build your skills step by step.</p>
+      </div>
+
+      <div class="roadmap">
+        <div class="step"><strong>Step 1</strong>IT & Networking Basics</div>
+        <div class="step"><strong>Step 2</strong>Linux Administration</div>
+        <div class="step"><strong>Step 3</strong>Git & GitHub</div>
+        <div class="step"><strong>Step 4</strong>Bash Scripting</div>
+        <div class="step"><strong>Step 5</strong>AWS Cloud</div>
+        <div class="step"><strong>Step 6</strong>Docker</div>
+        <div class="step"><strong>Step 7</strong>CI/CD</div>
+        <div class="step"><strong>Step 8</strong>Monitoring & Projects</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="container">
+      <div class="section-title">
+        <h2>Popular DevOps Tools</h2>
+        <p>Tools commonly used in learning and real DevOps environments.</p>
+      </div>
+
+      <div class="tools">
+        <span class="tool">Linux</span>
+        <span class="tool">Git</span>
+        <span class="tool">GitHub</span>
+        <span class="tool">Bash</span>
+        <span class="tool">AWS</span>
+        <span class="tool">Docker</span>
+        <span class="tool">Jenkins</span>
+        <span class="tool">GitHub Actions</span>
+        <span class="tool">Nginx</span>
+        <span class="tool">Terraform</span>
+        <span class="tool">Kubernetes</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="cta">
+        <h2>Build Skills Through Practice</h2>
+        <p>Create Linux servers, deploy simple web apps, write Bash scripts and push your projects to GitHub.</p>
+        <a class="btn" href="#home">Start Learning</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2026 DevOps Learning Hub | Static HTML Demo Website</p>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById("loginForm");
+  const message = document.getElementById("loginMessage");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if(username && password){
+      message.textContent = "Demo login successful. Welcome, " + username + "!";
+    } else {
+      message.textContent = "Please enter username and password.";
+    }
+  });
+</script>
+
+</body>
+</html>
